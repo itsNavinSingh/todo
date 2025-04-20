@@ -120,7 +120,7 @@ pub enum SortBy {
 #[derive(Args, Debug)]
 pub struct SortCommand {
     #[arg(value_enum, short, long, help = "Sort task by parameter")]
-    by: SortBy,
+    pub by: SortBy,
 }
 
 // export

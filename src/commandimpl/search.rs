@@ -13,9 +13,9 @@ pub fn search(cmd: &SearchCommand) -> Result<(), anyhow::Error> {
     for task in &task_list.tasks {
         if task.title.contains(cmd.word.as_str()) {
             let status = if task.completed {
-                "✔ Done".green()
+                "Done".green()
             } else {
-                "⬜ Pending".red()
+                "Pending".red()
             };
             println!(
                 "ID: {} | Title: {} | Status: {} | Priority: {} | Due: {} | CreatedAt: {}",

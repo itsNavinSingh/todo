@@ -16,9 +16,9 @@ pub fn list() -> Result<(), anyhow::Error> {
     println!("{}", "Tasks".bold());
     for task in task_list.tasks {
         let status = if task.completed {
-            "✔ Done".green()
+            "Done".green()
         } else {
-            "⬜ Pending".red()
+            "Pending".red()
         };
         println!(
             "ID: {} | Title: {} | Status: {} | Priority: {} | Due: {} | CreatedAt: {}",

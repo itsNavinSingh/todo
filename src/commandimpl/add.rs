@@ -34,9 +34,9 @@ pub fn add(cmd: &AddCommand) -> Result<(), anyhow::Error> {
 
     println!("{}", "New Task".bold());
     let status = if cmd.complete {
-        "✔ Done".green()
+        "Done".green()
     } else {
-        "⬜ Pending".red()
+        "Pending".red()
     };
     println!(
         "ID: {} | Title: {} | Status: {} | Priority: {} | Due: {} | CreatedAt: {}",

@@ -6,3 +6,5 @@ pub mod clear;
 pub mod edit;
 pub mod reset;
 pub mod search;
+pub mod sort;
+pub mod stats;
