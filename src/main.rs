@@ -1,5 +1,5 @@
 use clap::Parser;
-use commandimpl::{init::init, list::list};
+use commandimpl::{add::add, init::init, list::list};
 
 mod arguments;
 mod commandimpl;
@@ -10,6 +10,7 @@ fn main() -> Result<(), anyhow::Error>{
     match args.command {
         arguments::Commands::Init => init()?,
         arguments::Commands::List => list()?,
+        arguments::Commands::Add(add_cmd) => add(&add_cmd)?,
         _ => println!("Command is not implemented yet"),
     }
     Ok(())

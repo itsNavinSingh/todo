@@ -21,7 +21,7 @@ pub fn list() -> Result<(), anyhow::Error> {
             "⬜ Pending".red()
         };
         println!(
-            "ID: {} | Title: {} | Status: {} | Due: {} | Created: {}",
+            "ID: {} | Title: {} | Status: {} | Due: {} | CreatedAt: {}",
             task.id.to_string().cyan(),
             task.title,
             status,

@@ -36,7 +36,7 @@ pub enum Commands {
 
 // Add SubCommand
 #[derive(PartialEq, Eq, PartialOrd, Ord, ValueEnum, Debug, Copy, Clone)]
-enum Priority {
+pub enum Priority {
     /// Set priority to High
     High,
     /// Set priority to Medium
@@ -48,16 +48,16 @@ enum Priority {
 #[derive(Args, Debug)]
 pub struct AddCommand {
     #[arg(short, long, help = "Set the task title")]
-    title: String,
+    pub title: String,
 
-    #[arg(value_parser = parse_datetime, help = "Set the due datetime of task")]
-    due: NaiveDateTime,
+    #[arg(value_parser = parse_datetime, help = "Set the due datetime of task. format: DD-MM-YY HH:MM:SS", long, short)]
+    pub due: NaiveDateTime,
 
     #[arg(long, short, help = "Is task completed or not")]
-    complete: bool,
+    pub complete: bool,
 
-    #[arg(value_enum, default_value_t = Priority::Low, help = "Set the task priority")]
-    priority: Priority,
+    #[arg(value_enum, default_value_t = Priority::Low, help = "Set the task priority", long, short)]
+    pub priority: Priority,
 }
 
 fn parse_datetime(s: &str) -> Result<NaiveDateTime, String> {
