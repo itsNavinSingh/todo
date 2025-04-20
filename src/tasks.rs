@@ -3,6 +3,7 @@ use bincode::{Decode, Encode};
 pub struct Task {
     pub id: u32,
     pub title: String,
+    pub priority: String,
     pub completed: bool,
     pub created_at: String,
     pub due: String,

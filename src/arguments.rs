@@ -69,7 +69,7 @@ fn parse_datetime(s: &str) -> Result<NaiveDateTime, String> {
 #[derive(Args, Debug)]
 pub struct DeleteCommand {
     /// Task id to delete
-    id: u32,
+    pub id: u32,
 }
 
 // Edit Subcommand

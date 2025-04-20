@@ -2,7 +2,7 @@ use std::fs::File;
 
 use colored::Colorize;
 
-use crate::{arguments::AddCommand, tasks::Task, utility::{conjucture::{deserialize, serialize}, finddir::find_todo_dir}};
+use crate::{arguments::{AddCommand, Priority}, tasks::Task, utility::{conjucture::{deserialize, serialize}, finddir::find_todo_dir}};
 
 
 pub fn add(cmd: &AddCommand) -> Result<(), anyhow::Error> {
@@ -12,10 +12,16 @@ pub fn add(cmd: &AddCommand) -> Result<(), anyhow::Error> {
 
     let mut task_list = deserialize(&data_path)?;
     let current_time = chrono::Local::now().naive_local().to_string();
+    let priority = match cmd.priority {
+        Priority::High => "High",
+        Priority::Medium => "Medium",
+        Priority::Low => "Low",
+    };
 
     let new_task = Task {
         id: task_list.next_id,
         title: cmd.title.clone(),
+        priority: priority.to_string(),
         completed: cmd.complete,
         due: cmd.due.to_string(),
         created_at: current_time.clone(),
@@ -33,10 +39,11 @@ pub fn add(cmd: &AddCommand) -> Result<(), anyhow::Error> {
         "⬜ Pending".red()
     };
     println!(
-        "ID: {} | Title: {} | Status: {} | Due: {} | CreatedAt: {}",
+        "ID: {} | Title: {} | Status: {} | Priority: {} | Due: {} | CreatedAt: {}",
         (task_list.next_id - 1).to_string().cyan(),
         cmd.title,
         status,
+        priority.to_string(),
         cmd.due.to_string(),
         current_time
     );
