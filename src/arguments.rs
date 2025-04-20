@@ -22,6 +22,8 @@ pub enum Commands {
     Clear,
     /// edit the task
     Edit(EditCommand),
+    /// reset the id of tasks
+    Reset,
     /// search from tasks
     Search(SearchCommand),
     /// sort the task by parameter
@@ -77,26 +79,26 @@ pub struct DeleteCommand {
 #[derive(Args, Debug)]
 pub struct EditCommand {
     /// Task id to edit
-    id: u32,
+    pub id: u32,
 
     #[arg(long, short, help = "Set new task title")]
-    title: Option<String>,
+    pub title: Option<String>,
 
     #[arg(value_enum, help = "Set new priority")]
-    priority: Option<Priority>,
+    pub priority: Option<Priority>,
 
     #[arg(value_parser = parse_datetime, help = "Set new Due DateTime")]
-    due: Option<NaiveDateTime>,
+    pub due: Option<NaiveDateTime>,
 
     #[arg(long, short, help = "Set new stusts of task")]
-    complete: Option<bool>,
+    pub complete: Option<bool>,
 }
 
 // Search
 #[derive(Args, Debug)]
 pub struct SearchCommand {
     /// text to search in task
-    word: String,
+    pub word: String,
 }
 
 // sort
@@ -106,10 +108,12 @@ pub enum SortBy {
     Id,
     /// Sort the task by task title
     Title,
+    /// Sort by completion
+    Complete,
     /// Sort the task based on priority of task
     Priority,
     /// Sort the task based on creation time of task
-    CreatedAt,
+    Creation,
     /// Sort the task based on due date-time of task
     Due,
 }
