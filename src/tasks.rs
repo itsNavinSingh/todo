@@ -1,5 +1,6 @@
 use bincode::{Decode, Encode};
-#[derive(Encode, Decode, Debug)]
+use serde::Serialize;
+#[derive(Encode, Decode, Serialize, Debug)]
 pub struct Task {
     pub id: u32,
     pub title: String,

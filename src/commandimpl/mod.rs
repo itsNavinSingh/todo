@@ -8,3 +8,5 @@ pub mod reset;
 pub mod search;
 pub mod sort;
 pub mod stats;
+pub mod export;
+pub mod kill;

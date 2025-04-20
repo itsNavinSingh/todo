@@ -33,7 +33,7 @@ pub enum Commands {
     /// export the tasks
     Export(ExportCommand),
     /// Remove the whole todo from this project
-    Remove,
+    Kill,
 }
 
 // Add SubCommand
@@ -134,7 +134,7 @@ pub enum Format {
 #[derive(Args, Debug)]
 pub struct ExportCommand {
     #[arg(short, long, default_value = "output", help = "Sepecify the file name")]
-    output: String,
+    pub output: String,
     #[arg(value_enum, short, long, default_value_t = Format::CSV, help = "Specify the file format name")]
-    format: Format,
+    pub format: Format,
 }

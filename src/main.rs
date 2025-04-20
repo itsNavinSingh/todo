@@ -1,5 +1,5 @@
 use clap::Parser;
-use commandimpl::{add::add, clear::clear, delete::delete, edit::edit, init::init, list::list, reset::reset, search::search, sort::sort, stats::stats};
+use commandimpl::{add::add, clear::clear, delete::delete, edit::edit, export::export, init::init, kill::kill, list::list, reset::reset, search::search, sort::sort, stats::stats};
 
 mod arguments;
 mod commandimpl;
@@ -18,7 +18,9 @@ fn main() -> Result<(), anyhow::Error>{
         arguments::Commands::Search(search_cmd) => search(&search_cmd)?,
         arguments::Commands::Sort(sort_cmd) => sort(&sort_cmd)?,
         arguments::Commands::Stats => stats()?,
-        _ => println!("Command is not implemented yet"),
+        arguments::Commands::Export(exp_cmd) => export(&exp_cmd)?,
+        arguments::Commands::Kill => kill()?,
+        // _ => println!("Command is not implemented yet"),
     }
     Ok(())
 }
