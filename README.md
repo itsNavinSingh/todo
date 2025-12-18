@@ -1,4 +1,4 @@
-# 📝 Todo CLI (Rust)
+# 📝 Todo CLI
 
 A fast, project‑scoped **command‑line Todo manager** written in **Rust**.
 This tool helps you manage tasks **per project**, storing all data locally inside the project directory.
@@ -261,4 +261,3 @@ MIT License
 ## 👤 Author
 
 **Navin Kumar Singh**
-A Rust‑powered CLI project for clean and efficient task management.
