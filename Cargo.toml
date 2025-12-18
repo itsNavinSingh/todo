@@ -2,7 +2,7 @@
 name = "todo"
 version = "0.1.0"
 edition = "2024"
-authors = ["Baba Botinder"]
+authors = ["Navin Kumar Singh"]
 description = "A CLI tool to manage the task for each project"
 license = "MIT"
 
