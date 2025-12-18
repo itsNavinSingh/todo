@@ -241,17 +241,6 @@ src/
 
 ---
 
-## 🧪 Future Improvements
-
-* Tags & labels
-* Recurring tasks
-* Undo / history
-* Configurable date formats
-* Task dependencies
-* Git ignore helper for `.todo/`
-
----
-
 ## 📄 License
 
 MIT License
